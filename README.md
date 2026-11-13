@@ -1,6 +1,6 @@
 # DRIVUS (드라이버스)
 
-### Pleos Connect 기반 차량용 SNS 앱
+### Pleos Connect 기반 차량용 SNS 앱🚗
 
 **팀명:** OE (오이)  
 **앱 이름:** DRIVUS (드라이버스)
