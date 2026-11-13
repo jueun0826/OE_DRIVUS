@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:padding="20dp">
+
+    <!-- 상단 헤더 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="14dp">
+
+        <!-- 이전 버튼 ("◀️ 목록" -> "이전", 20sp Bold) -->
+        <Button
+            android:id="@+id/btnBackToChatList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이전"
+            android:textColor="#334155"
+            android:backgroundTint="#F1F5F9"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="14dp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:cardCornerRadius="24dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardElevation="0dp"
+            android:layout_marginEnd="12dp">
+
+            <ImageView
+                android:id="@+id/imgRoomAvatar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/icon_friend_324976"
+                android:scaleType="fitCenter"
+                android:padding="2dp"
+                android:contentDescription="채팅 상대방 프로필 이미지" />
+
+            <TextView
+                android:id="@+id/tvRoomAvatar"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone" />
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- 친구 이름 (28sp Bold) -->
+            <TextView
+                android:id="@+id/tvRoomFriendName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="성주은"
+                android:textColor="#0F172A"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <!-- 주행 상태 & 차종 (20sp Bold, 자동차 이모지 제거) -->
+            <TextView
+                android:id="@+id/tvRoomFriendStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="● 주행 중 · IONIQ 6"
+                android:textColor="#2563EB"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:paddingTop="2dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E2E8F0"
+        android:layout_marginBottom="12dp" />
+
+    <!-- 실시간 채팅 메시지 대화방 영역 -->
+    <ScrollView
+        android:id="@+id/scrollChatRoom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical"
+        android:fadeScrollbars="false">
+
+        <LinearLayout
+            android:id="@+id/layoutRoomMessagesContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 동적으로 수신/발신 메시지 말풍선(ItemBubble)이 여기에 추가됩니다 -->
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 하단 메시지 입력 바 & 우측 하단 닫기 버튼 영역 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="12dp">
+
+        <EditText
+            android:id="@+id/etRoomInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="메시지를 입력하세요..."
+            android:textColor="#0F172A"
+            android:textColorHint="#94A3B8"
+            android:textSize="24sp"
+            android:background="#F8FAFC"
+            android:padding="14dp"
+            android:layout_marginEnd="10dp"
+            android:inputType="text"
+            android:imeOptions="flagNoExtractUi" />
+
+        <Button
+            android:id="@+id/btnRoomSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="전송"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2563EB"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="10dp" />
+
+        <!-- 우측 하단 닫기 버튼 (120dp / 20sp Bold) -->
+        <Button
+            android:id="@+id/btnCloseRoom"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="✖️ 닫기"
+            android:textColor="#374151"
+            android:backgroundTint="#E2E8F0"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

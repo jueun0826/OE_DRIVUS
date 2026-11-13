@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F8FAFC"
+    android:padding="20dp">
+
+    <!-- 상단 헤더 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="12dp">
+
+        <Button
+            android:id="@+id/btnBackFromQuiz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="◀️ 미니게임 목록"
+            android:textColor="#334155"
+            android:backgroundTint="#F1F5F9"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="12dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="🧠 1:1 실시간 상식 퀴즈"
+            android:textColor="#0F172A"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvQuizScoreBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⭐ 점수: 20점"
+            android:textColor="#2563EB"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:background="#EFF6FF"
+            android:padding="8dp" />
+    </LinearLayout>
+
+    <!-- 퀴즈 문제 및 세로 나열 4개 대형 선지 보기 영역 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp">
+
+        <!-- 대형 문제 카드 (24sp 글씨) -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="3dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/tvQuizQuestionNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Q1. 한국 역사 상식 퀴즈"
+                    android:textColor="#2563EB"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:paddingBottom="6dp" />
+
+                <TextView
+                    android:id="@+id/tvQuizQuestionText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="대한민국 임시정부 초대 대통령이자 대한민국 제1·2·3대 대통령은 누구일까요?"
+                    android:textColor="#0F172A"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 4개 대형 선택지 보기 (세로 나열, 시원하게 키운 20sp 바 버튼) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnChoiceA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="A. 이승만"
+                android:textColor="#0F172A"
+                android:backgroundTint="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:padding="16dp"
+                android:gravity="start|center_vertical"
+                android:paddingStart="24dp"
+                android:layout_marginBottom="10dp" />
+
+            <Button
+                android:id="@+id/btnChoiceB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="B. 김구"
+                android:textColor="#0F172A"
+                android:backgroundTint="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:padding="16dp"
+                android:gravity="start|center_vertical"
+                android:paddingStart="24dp"
+                android:layout_marginBottom="10dp" />
+
+            <Button
+                android:id="@+id/btnChoiceC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="C. 안창호"
+                android:textColor="#0F172A"
+                android:backgroundTint="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:padding="16dp"
+                android:gravity="start|center_vertical"
+                android:paddingStart="24dp"
+                android:layout_marginBottom="10dp" />
+
+            <Button
+                android:id="@+id/btnChoiceD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="D. 윤보선"
+                android:textColor="#0F172A"
+                android:backgroundTint="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:padding="16dp"
+                android:gravity="start|center_vertical"
+                android:paddingStart="24dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- 하단 우측 배치 닫기 버튼 바 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:paddingTop="12dp">
+
+        <Button
+            android:id="@+id/btnCloseQuiz"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="✖️ 닫기"
+            android:textColor="#374151"
+            android:backgroundTint="#E2E8F0"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

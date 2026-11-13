@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "736103195473",
+    "project_id": "pleos-connect",
+    "storage_bucket": "pleos-connect.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736103195473:android:210f98299f64f5511ca970",
+        "android_client_info": {
+          "package_name": "com.example.oe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBn2Be8GYwHMfUuGG65SMP9D4NMjfiGe58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

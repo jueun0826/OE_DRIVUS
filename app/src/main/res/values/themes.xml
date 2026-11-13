@@ -1,0 +1,36 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme (NoActionBar for Automotive OS). -->
+    <style name="Theme.Oe" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Global Asta Sans Font Family -->
+        <item name="fontFamily">@font/asta_sans</item>
+        <item name="android:fontFamily">@font/asta_sans</item>
+
+        <!-- Explicit Widget Font Inheritance for TextView and Buttons -->
+        <item name="android:textViewStyle">@style/Widget.App.TextView</item>
+        <item name="android:buttonStyle">@style/Widget.App.Button</item>
+        <item name="materialButtonStyle">@style/Widget.App.Button</item>
+
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#6D28D9</item>
+        <item name="colorPrimaryVariant">#4C1D95</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#2563EB</item>
+        <item name="colorSecondaryVariant">#1D4ED8</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">#4C1D95</item>
+    </style>
+
+    <!-- Global TextView Style -->
+    <style name="Widget.App.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/asta_sans</item>
+        <item name="android:fontFamily">@font/asta_sans</item>
+    </style>
+
+    <!-- Global Button Style -->
+    <style name="Widget.App.Button" parent="Widget.MaterialComponents.Button">
+        <item name="fontFamily">@font/asta_sans</item>
+        <item name="android:fontFamily">@font/asta_sans</item>
+    </style>
+</resources>

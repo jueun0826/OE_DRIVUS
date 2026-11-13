@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#F8FAFC"
+    android:padding="24dp">
+
+    <!-- 1. 받는 친구 상단 제목 (28sp Bold) -->
+    <TextView
+        android:id="@+id/tvFriendTarget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🎯 받는 친구: 김플레오"
+        android:textColor="#0F172A"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:paddingBottom="14dp" />
+
+    <!-- 2. 마이크 실시간 녹음 상태 뱃지 (24sp Bold) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="14dp"
+        android:background="#FEE2E2"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🔴 [실시간 마이크 녹음 및 STT 음성 변환 중...]"
+            android:textColor="#DC2626"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- 3. 실시간 오디오 녹음 파형 커스텀 뷰 & 타이머 카운터 (레퍼런스 이미지 연동) -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#18181B"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="16dp">
+
+            <!-- 파형 비주얼라이저 (높이 140dp) -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0dp"
+                android:layout_marginBottom="12dp">
+
+                <com.example.oe.AudioWaveformView
+                    android:id="@+id/audioWaveformView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- 녹음 실시간 진행 타이머 (00:05.77) -->
+            <TextView
+                android:id="@+id/tvVoiceTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:05.77"
+                android:textColor="#FFFFFF"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- 4. 인식된 음성 텍스트 변환 결과 라벨 (24sp) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="인식된 음성 텍스트 변환 결과:"
+        android:textColor="#475569"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:paddingBottom="8dp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="2dp"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:id="@+id/etSpeechResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="예온이 바보보보보"
+            android:textColor="#0F172A"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:padding="18dp" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- 5. 하단 우측 버튼 영역 ("전송", 이모지 제거) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/btnSendVoice"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="전송"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2563EB"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="10dp" />
+
+        <Button
+            android:id="@+id/btnCloseVoice"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="✖️ 닫기"
+            android:textColor="#374151"
+            android:backgroundTint="#E2E8F0"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

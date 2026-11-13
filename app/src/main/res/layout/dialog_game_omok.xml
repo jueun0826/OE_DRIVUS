@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F8FAFC"
+    android:padding="20dp">
+
+    <!-- 상단 헤더 (우측 상단 승리/턴 배지 제거) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="8dp">
+
+        <Button
+            android:id="@+id/btnBackFromOmok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="◀️ 미니게임 목록"
+            android:textColor="#334155"
+            android:backgroundTint="#F1F5F9"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="12dp" />
+
+        <TextView
+            android:id="@+id/tvOmokTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="⚪⚫ 1:1 오목 대결"
+            android:textColor="#0F172A"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- 18x18 정밀 격자점 오목 바둑판 영역 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp">
+
+            <com.example.oe.OmokBoardView
+                android:id="@+id/omokBoardView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <!-- 하단 상태 바 및 우측 배치 기권하기 버튼 (기존 닫기 버튼 삭제, 기권하기가 우측 끝으로 이동) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:id="@+id/tvOmokStatusText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="💡화면을 터치하여 오목알을 착수하세요"
+            android:textColor="#475569"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btnResetOmok"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="🏳️ 기권하기"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#EF4444"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

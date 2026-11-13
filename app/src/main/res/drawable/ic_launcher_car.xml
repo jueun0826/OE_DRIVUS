@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Background Circle -->
+    <path
+        android:fillColor="#2563EB"
+        android:pathData="M54,4C26.39,4 4,26.39 4,54C4,81.61 26.39,104 54,104C81.61,104 104,81.61 104,54C104,26.39 81.61,4 54,4Z"/>
+
+    <!-- Inner Accent Circle -->
+    <path
+        android:fillColor="#3B82F6"
+        android:pathData="M54,12C30.8,12 12,30.8 12,54C12,77.2 30.8,96 54,96C77.2,96 96,77.2 96,54C96,30.8 77.2,12 54,12Z"/>
+
+    <!-- White Car Silhouette -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M28,62 C26.34,62 25,60.66 25,59 L25,53 C25,48.5 28.5,45 33,45 L38,45 L44,33 C45.5,30 49,28 54,28 L68,28 C72.5,28 76,30.5 77.5,33 L83.5,45 L88,45 C92.5,45 96,48.5 96,53 L96,59 C96,60.66 94.66,62 93,62 L91,62 C91,67.5 86.5,72 81,72 C75.5,72 71,67.5 71,62 L50,62 C50,67.5 45.5,72 40,72 C34.5,72 30,67.5 30,62 L28,62 Z M47,43 L42,43 L38,51 L51,51 L51,43 L47,43 Z M57,43 L57,51 L71,51 L66,43 L57,43 Z"/>
+
+    <!-- Left Wheel -->
+    <path
+        android:fillColor="#1E293B"
+        android:pathData="M40,58 A6,6 0 1,0 40,70 A6,6 0 1,0 40,58 Z"/>
+
+    <!-- Right Wheel -->
+    <path
+        android:fillColor="#1E293B"
+        android:pathData="M81,58 A6,6 0 1,0 81,70 A6,6 0 1,0 81,58 Z"/>
+
+    <!-- Top Green Chat Badge -->
+    <path
+        android:fillColor="#10B981"
+        android:pathData="M78,22 C72.48,22 68,26.48 68,32 C68,34.2 68.7,36.2 69.9,37.8 L68,43 L73.5,41.2 C74.9,41.7 76.4,42 78,42 C83.52,42 88,37.52 88,32 C88,26.48 83.52,22 78,22 Z"/>
+</vector>

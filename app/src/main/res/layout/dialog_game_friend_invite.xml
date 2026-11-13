@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F8FAFC"
+    android:padding="20dp">
+
+    <!-- 상단 헤더 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="12dp">
+
+        <Button
+            android:id="@+id/btnBackFromInvite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="미니게임 목록"
+            android:textColor="#334155"
+            android:backgroundTint="#F1F5F9"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="12dp" />
+
+        <TextView
+            android:id="@+id/tvInviteTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="⚔️ 대결할 친구 선택"
+            android:textColor="#0F172A"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="💡 차량 이용 중(주행/정차)인 친구에게 대결 신청이 가능합니다."
+        android:textColor="#64748B"
+        android:textSize="14sp"
+        android:paddingBottom="12dp" />
+
+    <!-- 10명 친구 대결 신청 목록 스크롤 뷰 (친구 목록 24sp 규격 통일) -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:id="@+id/layoutInviteFriendList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 1. 김플레오 (이름 24sp Bold) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="12dp"
+                android:background="#FFFFFF"
+                android:layout_marginBottom="8dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    app:cardCornerRadius="23dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardElevation="0dp"
+                    android:layout_marginEnd="12dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/icon_friend_686a72"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="김플레오 프로필 이미지" />
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="김플레오"
+                        android:textColor="#0F172A"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="● 주행 중 · IONIQ 6" android:textColor="#16A34A" android:textSize="18sp" android:textStyle="bold" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnInviteFriend1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚔️ 신청"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#545F93"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:padding="10dp" />
+            </LinearLayout>
+
+            <!-- 2. 이현대 (이름 24sp Bold) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="12dp"
+                android:background="#FFFFFF"
+                android:layout_marginBottom="8dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    app:cardCornerRadius="23dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardElevation="0dp"
+                    android:layout_marginEnd="12dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/icon_friend_324976"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="이현대 프로필 이미지" />
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="이현대" android:textColor="#0F172A" android:textSize="24sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="● 주행 중 · EV6" android:textColor="#16A34A" android:textSize="18sp" android:textStyle="bold" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnInviteFriend3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚔️ 신청"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#545F93"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:padding="10dp" />
+            </LinearLayout>
+
+            <!-- 3. 성주은 (이름 24sp Bold) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="12dp"
+                android:background="#FFFFFF"
+                android:layout_marginBottom="8dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    app:cardCornerRadius="23dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardElevation="0dp"
+                    android:layout_marginEnd="12dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/icon_friend_c7c9ce"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="성주은 프로필 이미지" />
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="성주은" android:textColor="#0F172A" android:textSize="24sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="● 주행 중 · AVANTE N" android:textColor="#16A34A" android:textSize="18sp" android:textStyle="bold" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnInviteFriend5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚔️ 신청"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#545F93"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:padding="10dp" />
+            </LinearLayout>
+
+            <!-- 4. 이예온 (이름 24sp Bold) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="12dp"
+                android:background="#FFFFFF"
+                android:layout_marginBottom="8dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    app:cardCornerRadius="23dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardElevation="0dp"
+                    android:layout_marginEnd="12dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/icon_friend_c7c9ce"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="이예온 프로필 이미지" />
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="이예온" android:textColor="#0F172A" android:textSize="24sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="● 주행 중 · GENESIS G80" android:textColor="#16A34A" android:textSize="18sp" android:textStyle="bold" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnInviteFriend6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚔️ 신청"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#545F93"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:padding="10dp" />
+            </LinearLayout>
+
+            <!-- 5. 김국민 (이름 24sp Bold) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="12dp"
+                android:background="#FFFFFF"
+                android:layout_marginBottom="8dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    app:cardCornerRadius="23dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardElevation="0dp"
+                    android:layout_marginEnd="12dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/icon_friend_686a72"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="김국민 프로필 이미지" />
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="김국민" android:textColor="#0F172A" android:textSize="24sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="● 주행 중 · CASPER" android:textColor="#16A34A" android:textSize="18sp" android:textStyle="bold" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnInviteFriend9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚔️ 신청"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#545F93"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:padding="10dp" />
+            </LinearLayout>
+
+            <!-- 6. 김플레오맘 (이름 24sp Bold) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="12dp"
+                android:background="#FFFFFF"
+                android:layout_marginBottom="8dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    app:cardCornerRadius="23dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardElevation="0dp"
+                    android:layout_marginEnd="12dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/icon_friend_324976"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="김플레오맘 프로필 이미지" />
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="김플레오맘" android:textColor="#0F172A" android:textSize="24sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="● 정차 중 · PALISADE" android:textColor="#D97706" android:textSize="18sp" android:textStyle="bold" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnInviteFriend2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚔️ 신청"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#545F93"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:padding="10dp" />
+            </LinearLayout>
+
+            <!-- 7. 엄성현 (이름 24sp Bold) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="12dp"
+                android:background="#FFFFFF"
+                android:layout_marginBottom="8dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    app:cardCornerRadius="23dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardElevation="0dp"
+                    android:layout_marginEnd="12dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/icon_friend_9ba8e2"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="엄성현 프로필 이미지" />
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="엄성현" android:textColor="#0F172A" android:textSize="24sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="● 정차 중 · TUCSON" android:textColor="#D97706" android:textSize="18sp" android:textStyle="bold" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnInviteFriend7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚔️ 신청"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#545F93"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:padding="10dp" />
+            </LinearLayout>
+
+            <!-- 8. 최자두 (이름 24sp Bold) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="12dp"
+                android:background="#FFFFFF"
+                android:layout_marginBottom="8dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    app:cardCornerRadius="23dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardElevation="0dp"
+                    android:layout_marginEnd="12dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/icon_friend_324976"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="최자두 프로필 이미지" />
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="최자두" android:textColor="#0F172A" android:textSize="24sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="● 정차 중 · RAY EV" android:textColor="#D97706" android:textSize="18sp" android:textStyle="bold" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnInviteFriend10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚔️ 신청"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#545F93"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:padding="10dp" />
+            </LinearLayout>
+
+            <!-- 9. 최제네시스 (이름 24sp Bold) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="12dp"
+                android:background="#F1F5F9"
+                android:layout_marginBottom="8dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    app:cardCornerRadius="23dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardElevation="0dp"
+                    android:layout_marginEnd="12dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/icon_friend_324976"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="최제네시스 프로필 이미지" />
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="최제네시스" android:textColor="#64748B" android:textSize="24sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="● 차량 미이용 (비운행)" android:textColor="#94A3B8" android:textSize="18sp" android:textStyle="bold" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnInviteFriend4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="신청 불가"
+                    android:textColor="#94A3B8"
+                    android:backgroundTint="#E2E8F0"
+                    android:textSize="16sp"
+                    android:padding="10dp"
+                    android:enabled="false" />
+            </LinearLayout>
+
+            <!-- 10. 한아이오닉 (이름 24sp Bold) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="12dp"
+                android:background="#F1F5F9">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    app:cardCornerRadius="23dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardElevation="0dp"
+                    android:layout_marginEnd="12dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/icon_friend_9ba8e2"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="한아이오닉 프로필 이미지" />
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="한아이오닉" android:textColor="#64748B" android:textSize="24sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="● 차량 미이용 (비운행)" android:textColor="#94A3B8" android:textSize="18sp" android:textStyle="bold" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnInviteFriend8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="신청 불가"
+                    android:textColor="#94A3B8"
+                    android:backgroundTint="#E2E8F0"
+                    android:textSize="16sp"
+                    android:padding="10dp"
+                    android:enabled="false" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 하단 우측 배치 닫기 버튼 바 (120dp / 20sp Bold) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:paddingTop="12dp">
+
+        <Button
+            android:id="@+id/btnCloseInvite"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="✖️ 닫기"
+            android:textColor="#374151"
+            android:backgroundTint="#E2E8F0"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

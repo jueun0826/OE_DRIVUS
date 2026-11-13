@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:padding="24dp">
+
+    <!-- 헤더 제목 (28sp Bold, 이모지 제거) -->
+    <TextView
+        android:id="@+id/tvQuickListTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="16dp"
+        android:text="음성 메시지 선택"
+        android:textColor="#0F172A"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <!-- 메시지 항목 4개 선택 라디오 리스트 (24sp, 이모지 제거) -->
+    <RadioGroup
+        android:id="@+id/rgQuickMessages"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingBottom="16dp">
+
+        <RadioButton
+            android:id="@+id/rbMsg1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="조심히 오세요! 휴게소에서 기다릴게요"
+            android:textColor="#1E293B"
+            android:textSize="24sp"
+            android:padding="12dp"
+            android:checked="true"
+            android:background="#F8FAFC"
+            android:layout_marginBottom="8dp" />
+
+        <RadioButton
+            android:id="@+id/rbMsg2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="지금 어디쯤 지나고 계신가요?"
+            android:textColor="#1E293B"
+            android:textSize="24sp"
+            android:padding="12dp"
+            android:background="#F8FAFC"
+            android:layout_marginBottom="8dp" />
+
+        <RadioButton
+            android:id="@+id/rbMsg3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="차 문 잘 닫혔는지 확인해 보세요!"
+            android:textColor="#1E293B"
+            android:textSize="24sp"
+            android:padding="12dp"
+            android:background="#F8FAFC"
+            android:layout_marginBottom="8dp" />
+
+        <RadioButton
+            android:id="@+id/rbMsg4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="안전 운전하세요! 도착해서 봐요~"
+            android:textColor="#1E293B"
+            android:textSize="24sp"
+            android:padding="12dp"
+            android:background="#F8FAFC" />
+    </RadioGroup>
+
+    <!-- 하단 버튼 영역 (20sp 적용, 이모지 제거) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/btnBackToOption"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="이전"
+            android:textColor="#4B5563"
+            android:backgroundTint="#E5E7EB"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btnSendVoiceQuick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="음성 메시지 전송"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2563EB"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

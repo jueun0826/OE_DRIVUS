@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 눌렸을 때 (Pressed State): Pleos Shadow Level 2로 입체감 상승 (Z-translation 6dp) -->
+    <item android:state_pressed="true">
+        <objectAnimator
+            android:propertyName="translationZ"
+            android:duration="100"
+            android:valueTo="6dp"
+            android:valueType="floatType"/>
+    </item>
+    <!-- 기본 상태 (Default Resting State): Pleos Shadow Level 1 (Z-translation 0dp) -->
+    <item>
+        <objectAnimator
+            android:propertyName="translationZ"
+            android:duration="100"
+            android:valueTo="0dp"
+            android:valueType="floatType"/>
+    </item>
+</selector>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:padding="24dp">
+
+    <!-- 타이틀 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        android:text="내 프로필 수정"
+        android:textColor="#0F172A"
+        android:textSize="34sp"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E2E8F0"
+        android:layout_marginBottom="16dp" />
+
+    <!-- 프로필 사진 아바타 선택 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:text="프로필 사진 아이콘 선택"
+        android:textColor="#334155"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/rgAvatarSelect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="16dp">
+
+        <RadioButton
+            android:id="@+id/rbAvatar1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:checked="true"
+            android:text="🚘 차"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/rbAvatar2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:text="👨‍✈️ 운전자"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/rbAvatar3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:text="🏎️ 레이서"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/rbAvatar4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="👤 기본"
+            android:textSize="20sp" />
+    </RadioGroup>
+
+    <!-- 한줄 소개 입력 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:text="내 한줄소개 수정"
+        android:textColor="#334155"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etMyBioInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="#F1F5F9"
+        android:hint="친구들에게 보일 한줄소개를 작성하세요..."
+        android:padding="12dp"
+        android:text="오늘도 안전 운전! 즐거운 하루 보내세요 ~!"
+        android:textColor="#0F172A"
+        android:textSize="20sp" />
+
+    <!-- 하단 버튼 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/btnCancelEditProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="취소"
+            android:textColor="#475569"
+            android:backgroundTint="#E2E8F0"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btnSaveEditProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#2563EB"
+            android:text="저장"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+</LinearLayout>

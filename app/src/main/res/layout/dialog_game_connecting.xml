@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#FFFFFF"
+    android:padding="32dp">
+
+    <!-- 로딩 스피너 -->
+    <ProgressBar
+        android:id="@+id/pbLoading"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:indeterminateTint="#7C3AED"
+        android:layout_marginBottom="24dp" />
+
+    <!-- 대결 신청 중 메시지 -->
+    <TextView
+        android:id="@+id/tvConnectingMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="'김플레오'님에게 게임을 신청하는 중..."
+        android:textColor="#1D1E21"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingBottom="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="상대방의 수락을 기다리고 있습니다 📡"
+        android:textColor="#64748B"
+        android:textSize="15sp"
+        android:gravity="center" />
+
+</LinearLayout>

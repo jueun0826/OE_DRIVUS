@@ -1,0 +1,1479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F8FAFC"
+    android:padding="16dp">
+
+    <!-- 상단 브랜드 헤더 (DRIVUS 20% 세로 크기 확장, #545F93 헤더 바 & 정사각형 아이콘) -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#545F93"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        android:layout_marginBottom="14dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="22dp"
+            android:paddingEnd="22dp"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp">
+
+            <!-- 앱 아이콘 이미지 (42dp x 42dp 정사각형 네모 카드) -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardElevation="0dp"
+                android:layout_marginEnd="14dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_pleos_app_icon"
+                    android:scaleType="fitCenter"
+                    android:padding="2dp"
+                    android:contentDescription="DRIVUS 앱 아이콘" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DRIVUS"
+                android:textColor="#FFFFFF"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- 메인 컨텐츠 영역 (좌/우 2컬럼 레이아웃) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <!-- 좌측 컬럼: 내 프로필 전용 Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="12dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:gravity="top|center_horizontal">
+
+                    <!-- 코드 호환성을 위한 숨겨진 뷰들 (화면 표출 안 됨) -->
+                    <TextView android:id="@+id/tvMyName" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone" />
+                    <TextView android:id="@+id/tvDoorStatus" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone" />
+                    <TextView android:id="@+id/tvGearStatus" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone" />
+                    <Button android:id="@+id/btnRefreshVehicle" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone" />
+                    <TextView android:id="@+id/tvMyAvatarEmoji" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone" />
+
+                    <!-- [상단 헤더] 내 프로필 (28sp Bold) -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:text="내 프로필"
+                        android:textColor="#1D1E21"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:paddingBottom="14dp" />
+
+                    <!-- 내 네이비 아바타 이미지 프로필 아이콘 (80dp x 80dp, 정비율 fitCenter) -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        app:cardCornerRadius="40dp"
+                        app:cardBackgroundColor="#FFFFFF"
+                        app:cardElevation="2dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="12dp">
+
+                        <ImageView
+                            android:id="@+id/imgMyAvatar"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/icon_friend_324976"
+                            android:scaleType="fitCenter"
+                            android:padding="4dp"
+                            android:contentDescription="김차차 프로필 이미지" />
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- 내 이름: 김차차 (24sp Bold) -->
+                    <TextView
+                        android:id="@+id/tvMyProfileHandle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="김차차"
+                        android:textColor="#1D1E21"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:gravity="center" />
+
+                    <!-- 내 아이디 정보 -->
+                    <TextView
+                        android:id="@+id/tvMyProfileSubHandle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ID: chacha_kim"
+                        android:textColor="#64748B"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:paddingTop="2dp" />
+
+                    <!-- 내 차종 정보 (김차차 = IONIQ 5, 검정색 #1D1E21, 이모지 제거) -->
+                    <TextView
+                        android:id="@+id/tvMyProfileVehicle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="차종: IONIQ 5"
+                        android:textColor="#1D1E21"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:paddingTop="2dp" />
+
+                    <!-- 김차차 한줄 소개 (20sp, 🏁 이모티콘 제거) -->
+                    <TextView
+                        android:id="@+id/tvMyProfileBio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="💬 &quot;오늘도 안전 운전! 즐거운 하루 보내세요&quot;"
+                        android:textColor="#4B5563"
+                        android:textSize="20sp"
+                        android:gravity="center"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="16dp" />
+
+                    <!-- 프로필 수정 버튼 (20sp Bold) -->
+                    <Button
+                        android:id="@+id/btnEditMyProfile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="프로필 수정"
+                        android:textColor="#1D1E21"
+                        android:backgroundTint="#E2E8F0"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:padding="12dp" />
+
+                    <!-- 상세 공개 범위 카드 섹션 (13개 개별 항목 토글 컨트롤) -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="#F8FAFC"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginTop="16dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🔒 공개 범위 상세 설정"
+                                android:textColor="#0F172A"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:paddingBottom="12dp" />
+
+                            <!-- 카테고리 1: 위치 & 주행 정보 (이모지 제거, 검정색 #0F172A, 19sp Bold) -->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="위치 및 주행 정보"
+                                android:textColor="#0F172A"
+                                android:textSize="19sp"
+                                android:textStyle="bold"
+                                android:paddingTop="4dp"
+                                android:paddingBottom="8dp" />
+
+                            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:paddingTop="6dp" android:paddingBottom="6dp">
+                                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="실시간 위치 공개" android:textColor="#334155" android:textSize="18sp" android:textStyle="bold" />
+                                <androidx.appcompat.widget.SwitchCompat android:id="@+id/switchPublicLocation" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" app:thumbTint="@color/switch_thumb_selector" app:trackTint="@color/switch_track_selector" />
+                            </LinearLayout>
+
+                            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:paddingTop="6dp" android:paddingBottom="6dp">
+                                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="주행 상태 공개" android:textColor="#334155" android:textSize="18sp" android:textStyle="bold" />
+                                <androidx.appcompat.widget.SwitchCompat android:id="@+id/switchPublicDrivingStatus" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" app:thumbTint="@color/switch_thumb_selector" app:trackTint="@color/switch_track_selector" />
+                            </LinearLayout>
+
+                            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:paddingTop="6dp" android:paddingBottom="6dp">
+                                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="목적지 &amp; ETA 공개" android:textColor="#334155" android:textSize="18sp" android:textStyle="bold" />
+                                <androidx.appcompat.widget.SwitchCompat android:id="@+id/switchPublicDestination" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" app:thumbTint="@color/switch_thumb_selector" app:trackTint="@color/switch_track_selector" />
+                            </LinearLayout>
+
+                            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:paddingTop="6dp" android:paddingBottom="6dp">
+                                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="주행 기록 (타임라인)" android:textColor="#334155" android:textSize="18sp" android:textStyle="bold" />
+                                <androidx.appcompat.widget.SwitchCompat android:id="@+id/switchPublicTimeline" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" app:thumbTint="@color/switch_thumb_selector" app:trackTint="@color/switch_track_selector" />
+                            </LinearLayout>
+
+                            <!-- 카테고리 2: 프로필 & 소셜 (이모지 제거, 검정색 #0F172A, 19sp Bold) -->
+                            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E2E8F0" android:layout_marginTop="8dp" android:layout_marginBottom="8dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="프로필 및 소셜 상태"
+                                android:textColor="#0F172A"
+                                android:textSize="19sp"
+                                android:textStyle="bold"
+                                android:paddingTop="4dp"
+                                android:paddingBottom="8dp" />
+
+                            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:paddingTop="6dp" android:paddingBottom="6dp">
+                                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="프로필 정보 공개" android:textColor="#334155" android:textSize="18sp" android:textStyle="bold" />
+                                <androidx.appcompat.widget.SwitchCompat android:id="@+id/switchPublicProfile" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" app:thumbTint="@color/switch_thumb_selector" app:trackTint="@color/switch_track_selector" />
+                            </LinearLayout>
+
+                            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:paddingTop="6dp" android:paddingBottom="6dp">
+                                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="온라인 상태 공개" android:textColor="#334155" android:textSize="18sp" android:textStyle="bold" />
+                                <androidx.appcompat.widget.SwitchCompat android:id="@+id/switchPublicOnline" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" app:thumbTint="@color/switch_thumb_selector" app:trackTint="@color/switch_track_selector" />
+                            </LinearLayout>
+
+                            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:paddingTop="6dp" android:paddingBottom="6dp">
+                                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="친구 목록 공개" android:textColor="#334155" android:textSize="18sp" android:textStyle="bold" />
+                                <androidx.appcompat.widget.SwitchCompat android:id="@+id/switchPublicFriendList" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" app:thumbTint="@color/switch_thumb_selector" app:trackTint="@color/switch_track_selector" />
+                            </LinearLayout>
+
+                            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:paddingTop="6dp" android:paddingBottom="6dp">
+                                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="친구 요청 허용" android:textColor="#334155" android:textSize="18sp" android:textStyle="bold" />
+                                <androidx.appcompat.widget.SwitchCompat android:id="@+id/switchAllowFriendRequest" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" app:thumbTint="@color/switch_thumb_selector" app:trackTint="@color/switch_track_selector" />
+                            </LinearLayout>
+
+                            <!-- 카테고리 3: 상호작용 & 메시징 (이모지 제거, 검정색 #0F172A, 19sp Bold) -->
+                            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E2E8F0" android:layout_marginTop="8dp" android:layout_marginBottom="8dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="상호작용 및 수신 허용"
+                                android:textColor="#0F172A"
+                                android:textSize="19sp"
+                                android:textStyle="bold"
+                                android:paddingTop="4dp"
+                                android:paddingBottom="8dp" />
+
+                            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:paddingTop="6dp" android:paddingBottom="6dp">
+                                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="콕 찌르기 허용" android:textColor="#334155" android:textSize="18sp" android:textStyle="bold" />
+                                <androidx.appcompat.widget.SwitchCompat android:id="@+id/switchAllowPoke" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" app:thumbTint="@color/switch_thumb_selector" app:trackTint="@color/switch_track_selector" />
+                            </LinearLayout>
+
+                            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:paddingTop="6dp" android:paddingBottom="6dp">
+                                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="음성 메시지 수신" android:textColor="#334155" android:textSize="18sp" android:textStyle="bold" />
+                                <androidx.appcompat.widget.SwitchCompat android:id="@+id/switchAllowVoice" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" app:thumbTint="@color/switch_thumb_selector" app:trackTint="@color/switch_track_selector" />
+                            </LinearLayout>
+
+                            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:paddingTop="6dp" android:paddingBottom="6dp">
+                                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="채팅 요청 허용" android:textColor="#334155" android:textSize="18sp" android:textStyle="bold" />
+                                <androidx.appcompat.widget.SwitchCompat android:id="@+id/switchAllowChat" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" app:thumbTint="@color/switch_thumb_selector" app:trackTint="@color/switch_track_selector" />
+                            </LinearLayout>
+
+                            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:paddingTop="6dp" android:paddingBottom="6dp">
+                                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="미니게임 초대 허용" android:textColor="#334155" android:textSize="18sp" android:textStyle="bold" />
+                                <androidx.appcompat.widget.SwitchCompat android:id="@+id/switchAllowGameInvite" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" app:thumbTint="@color/switch_thumb_selector" app:trackTint="@color/switch_track_selector" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+            </ScrollView>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 우측: 10명 친구 목록 ScrollView + 4개 기능 카드 (2x2 그리드) -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <!-- 상단: 10명 친구 목록 Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.2"
+                android:layout_marginBottom="10dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- 내 친구 목록 (10) (28sp Bold) -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="8dp"
+                        android:text="내 친구 목록 (10)"
+                        android:textColor="#44464E"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scrollbars="vertical"
+                        android:fadeScrollbars="false">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <!-- [1] 김플레오 (주행 중 - 초록색 #16A34A) -->
+                            <LinearLayout
+                                android:id="@+id/layoutFriend1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:paddingStart="6dp"
+                                android:paddingEnd="6dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/avatarFriend1"
+                                    android:layout_width="46dp"
+                                    android:layout_height="46dp"
+                                    app:cardCornerRadius="23dp"
+                                    app:cardBackgroundColor="#FFFFFF"
+                                    app:cardElevation="0dp"
+                                    android:layout_marginEnd="12dp"
+                                    android:clickable="true"
+                                    android:focusable="true">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/icon_friend_686a72"
+                                        android:scaleType="fitCenter"
+                                        android:padding="2dp"
+                                        android:contentDescription="김플레오 프로필 이미지" />
+                                </androidx.cardview.widget.CardView>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical">
+
+                                    <TextView
+                                        android:id="@+id/tvFriend1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="김플레오"
+                                        android:textColor="#1D1E21"
+                                        android:textSize="24sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="6dp"
+                                        android:layout_marginEnd="8dp"
+                                        android:text="(주행 중)"
+                                        android:textColor="#16A34A"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="💬 &quot;오늘도 안운! 강남역 만날 사람~~ &quot;"
+                                        android:textColor="#4B5563"
+                                        android:textSize="20sp" />
+                                </LinearLayout>
+
+                                <Button
+                                    android:id="@+id/btnPokeFriend1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="👉 콕찌르기"
+                                    android:textColor="#1D1E21"
+                                    android:backgroundTint="#E2E8F0"
+                                    android:textSize="16sp"
+                                    android:padding="10dp"
+                                    android:layout_marginEnd="6dp" />
+
+                                <Button
+                                    android:id="@+id/btnVoiceFriend1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="🎙️ 음성"
+                                    android:textColor="#1D1E21"
+                                    android:backgroundTint="#E2E8F0"
+                                    android:textSize="16sp"
+                                    android:padding="10dp" />
+                            </LinearLayout>
+
+                            <!-- [2] 이현대 (주행 중 - 초록색 #16A34A) -->
+                            <LinearLayout
+                                android:id="@+id/layoutFriend3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:paddingStart="6dp"
+                                android:paddingEnd="6dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/avatarFriend3"
+                                    android:layout_width="46dp"
+                                    android:layout_height="46dp"
+                                    app:cardCornerRadius="23dp"
+                                    app:cardBackgroundColor="#FFFFFF"
+                                    app:cardElevation="0dp"
+                                    android:layout_marginEnd="10dp">
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/icon_friend_324976"
+                                        android:scaleType="fitCenter"
+                                        android:padding="2dp"
+                                        android:contentDescription="이현대 프로필 이미지" />
+                                </androidx.cardview.widget.CardView>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical">
+
+                                    <TextView
+                                        android:id="@+id/tvFriend3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="이현대"
+                                        android:textColor="#1D1E21"
+                                        android:textSize="24sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="6dp"
+                                        android:layout_marginEnd="8dp"
+                                        android:text="(주행 중)"
+                                        android:textColor="#16A34A"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="💬 &quot;출근중ㅠㅠ오늘도 파이팅~!! &quot;"
+                                        android:textColor="#4B5563"
+                                        android:textSize="20sp" />
+                                </LinearLayout>
+
+                                <Button
+                                    android:id="@+id/btnPokeFriend3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="👉 콕찌르기"
+                                    android:textColor="#1D1E21"
+                                    android:backgroundTint="#E2E8F0"
+                                    android:textSize="16sp"
+                                    android:padding="10dp"
+                                    android:layout_marginEnd="6dp" />
+
+                                <Button
+                                    android:id="@+id/btnVoiceFriend3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="🎙️ 음성"
+                                    android:textColor="#1D1E21"
+                                    android:backgroundTint="#E2E8F0"
+                                    android:textSize="16sp"
+                                    android:padding="10dp" />
+                            </LinearLayout>
+
+                            <!-- [3] 성주은 (주행 중 - 초록색 #16A34A) -->
+                            <LinearLayout
+                                android:id="@+id/layoutFriend5"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:paddingStart="6dp"
+                                android:paddingEnd="6dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/avatarFriend5"
+                                    android:layout_width="46dp"
+                                    android:layout_height="46dp"
+                                    app:cardCornerRadius="23dp"
+                                    app:cardBackgroundColor="#FFFFFF"
+                                    app:cardElevation="0dp"
+                                    android:layout_marginEnd="12dp">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/icon_friend_c7c9ce"
+                                        android:scaleType="fitCenter"
+                                        android:padding="2dp"
+                                        android:contentDescription="성주은 프로필 이미지" />
+                                </androidx.cardview.widget.CardView>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical">
+
+                                    <TextView
+                                        android:id="@+id/tvFriend5"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="성주은"
+                                        android:textColor="#1D1E21"
+                                        android:textSize="24sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="6dp"
+                                        android:layout_marginEnd="8dp"
+                                        android:text="(주행 중)"
+                                        android:textColor="#16A34A"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="💬 &quot;벌써 가을이네~~!! &quot;"
+                                        android:textColor="#4B5563"
+                                        android:textSize="20sp" />
+                                </LinearLayout>
+
+                                <Button
+                                    android:id="@+id/btnPokeFriend5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="👉 콕찌르기"
+                                    android:textColor="#1D1E21"
+                                    android:backgroundTint="#E2E8F0"
+                                    android:textSize="16sp"
+                                    android:padding="10dp"
+                                    android:layout_marginEnd="6dp" />
+
+                                <Button
+                                    android:id="@+id/btnVoiceFriend5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="🎙️ 음성"
+                                    android:textColor="#1D1E21"
+                                    android:backgroundTint="#E2E8F0"
+                                    android:textSize="16sp"
+                                    android:padding="10dp" />
+                            </LinearLayout>
+
+                            <!-- [4] 이예온 (주행 중 - 초록색 #16A34A) -->
+                            <LinearLayout
+                                android:id="@+id/layoutFriend6"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:paddingStart="6dp"
+                                android:paddingEnd="6dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/avatarFriend6"
+                                    android:layout_width="46dp"
+                                    android:layout_height="46dp"
+                                    app:cardCornerRadius="23dp"
+                                    app:cardBackgroundColor="#FFFFFF"
+                                    app:cardElevation="0dp"
+                                    android:layout_marginEnd="12dp">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/icon_friend_c7c9ce"
+                                        android:scaleType="fitCenter"
+                                        android:padding="2dp"
+                                        android:contentDescription="이예온 프로필 이미지" />
+                                </androidx.cardview.widget.CardView>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical">
+
+                                    <TextView
+                                        android:id="@+id/tvFriend6"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="이예온"
+                                        android:textColor="#1D1E21"
+                                        android:textSize="24sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="6dp"
+                                        android:layout_marginEnd="8dp"
+                                        android:text="(주행 중)"
+                                        android:textColor="#16A34A"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="💬 &quot;가평 글램핑장 가는 중ㅎㅎ &quot;"
+                                        android:textColor="#4B5563"
+                                        android:textSize="20sp" />
+                                </LinearLayout>
+
+                                <Button
+                                    android:id="@+id/btnPokeFriend6"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="👉 콕찌르기"
+                                    android:textColor="#1D1E21"
+                                    android:backgroundTint="#E2E8F0"
+                                    android:textSize="16sp"
+                                    android:padding="10dp"
+                                    android:layout_marginEnd="6dp" />
+
+                                <Button
+                                    android:id="@+id/btnVoiceFriend6"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="🎙️ 음성"
+                                    android:textColor="#1D1E21"
+                                    android:backgroundTint="#E2E8F0"
+                                    android:textSize="16sp"
+                                    android:padding="10dp" />
+                            </LinearLayout>
+
+                            <!-- [5] 김국민 (주행 중 - 초록색 #16A34A) -->
+                            <LinearLayout
+                                android:id="@+id/layoutFriend9"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:paddingStart="6dp"
+                                android:paddingEnd="6dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/avatarFriend9"
+                                    android:layout_width="46dp"
+                                    android:layout_height="46dp"
+                                    app:cardCornerRadius="23dp"
+                                    app:cardBackgroundColor="#FFFFFF"
+                                    app:cardElevation="0dp"
+                                    android:layout_marginEnd="12dp">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/icon_friend_686a72"
+                                        android:scaleType="fitCenter"
+                                        android:padding="2dp"
+                                        android:contentDescription="김국민 프로필 이미지" />
+                                </androidx.cardview.widget.CardView>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical">
+
+                                    <TextView
+                                        android:id="@+id/tvFriend9"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="김국민"
+                                        android:textColor="#1D1E21"
+                                        android:textSize="24sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="6dp"
+                                        android:layout_marginEnd="8dp"
+                                        android:text="(주행 중)"
+                                        android:textColor="#16A34A"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="💬 &quot;동해안 해안도로 드라이브 중ㅋㅋ!! &quot;"
+                                        android:textColor="#4B5563"
+                                        android:textSize="20sp" />
+                                </LinearLayout>
+
+                                <Button
+                                    android:id="@+id/btnPokeFriend9"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="👉 콕찌르기"
+                                    android:textColor="#1D1E21"
+                                    android:backgroundTint="#E2E8F0"
+                                    android:textSize="16sp"
+                                    android:padding="10dp"
+                                    android:layout_marginEnd="6dp" />
+
+                                <Button
+                                    android:id="@+id/btnVoiceFriend9"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="🎙️ 음성"
+                                    android:textColor="#1D1E21"
+                                    android:backgroundTint="#E2E8F0"
+                                    android:textSize="16sp"
+                                    android:padding="10dp" />
+                            </LinearLayout>
+
+                            <!-- [6] 김플레오맘 (정차 중) -->
+                            <LinearLayout
+                                android:id="@+id/layoutFriend2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:paddingStart="6dp"
+                                android:paddingEnd="6dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/avatarFriend2"
+                                    android:layout_width="46dp"
+                                    android:layout_height="46dp"
+                                    app:cardCornerRadius="23dp"
+                                    app:cardBackgroundColor="#FFFFFF"
+                                    app:cardElevation="0dp"
+                                    android:layout_marginEnd="12dp">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/icon_friend_324976"
+                                        android:scaleType="fitCenter"
+                                        android:padding="2dp"
+                                        android:contentDescription="김플레오맘 프로필 이미지" />
+                                </androidx.cardview.widget.CardView>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical">
+
+                                    <TextView
+                                        android:id="@+id/tvFriend2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="김플레오맘"
+                                        android:textColor="#1D1E21"
+                                        android:textSize="24sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="6dp"
+                                        android:layout_marginEnd="8dp"
+                                        android:text="(정차 중 / 문 열림)"
+                                        android:textColor="#D97706"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="💬 &quot;플레오맘. 이에요~^^ &quot;"
+                                        android:textColor="#4B5563"
+                                        android:textSize="20sp" />
+                                </LinearLayout>
+
+                                <Button
+                                    android:id="@+id/btnPokeFriend2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="👉 콕찌르기"
+                                    android:textColor="#1D1E21"
+                                    android:backgroundTint="#E2E8F0"
+                                    android:textSize="16sp"
+                                    android:padding="10dp"
+                                    android:layout_marginEnd="6dp" />
+
+                                <Button
+                                    android:id="@+id/btnVoiceFriend2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="🎙️ 음성"
+                                    android:textColor="#1D1E21"
+                                    android:backgroundTint="#E2E8F0"
+                                    android:textSize="16sp"
+                                    android:padding="10dp" />
+                            </LinearLayout>
+
+                            <!-- [7] 엄성현 (정차 중) -->
+                            <LinearLayout
+                                android:id="@+id/layoutFriend7"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:paddingStart="6dp"
+                                android:paddingEnd="6dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/avatarFriend7"
+                                    android:layout_width="46dp"
+                                    android:layout_height="46dp"
+                                    app:cardCornerRadius="23dp"
+                                    app:cardBackgroundColor="#FFFFFF"
+                                    app:cardElevation="0dp"
+                                    android:layout_marginEnd="12dp">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/icon_friend_9ba8e2"
+                                        android:scaleType="fitCenter"
+                                        android:padding="2dp"
+                                        android:contentDescription="엄성현 프로필 이미지" />
+                                </androidx.cardview.widget.CardView>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical">
+
+                                    <TextView
+                                        android:id="@+id/tvFriend7"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="엄성현"
+                                        android:textColor="#1D1E21"
+                                        android:textSize="24sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="6dp"
+                                        android:layout_marginEnd="8dp"
+                                        android:text="(정차 중 / P기어)"
+                                        android:textColor="#D97706"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="💬 &quot;드라이브 스루 주문 완 &quot;"
+                                        android:textColor="#4B5563"
+                                        android:textSize="20sp" />
+                                </LinearLayout>
+
+                                <Button
+                                    android:id="@+id/btnPokeFriend7"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="👉 콕찌르기"
+                                    android:textColor="#1D1E21"
+                                    android:backgroundTint="#E2E8F0"
+                                    android:textSize="16sp"
+                                    android:padding="10dp"
+                                    android:layout_marginEnd="6dp" />
+
+                                <Button
+                                    android:id="@+id/btnVoiceFriend7"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="🎙️ 음성"
+                                    android:textColor="#1D1E21"
+                                    android:backgroundTint="#E2E8F0"
+                                    android:textSize="16sp"
+                                    android:padding="10dp" />
+                            </LinearLayout>
+
+                            <!-- [8] 최자두 (정차 중) -->
+                            <LinearLayout
+                                android:id="@+id/layoutFriend10"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:paddingStart="6dp"
+                                android:paddingEnd="6dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/avatarFriend10"
+                                    android:layout_width="46dp"
+                                    android:layout_height="46dp"
+                                    app:cardCornerRadius="23dp"
+                                    app:cardBackgroundColor="#FFFFFF"
+                                    app:cardElevation="0dp"
+                                    android:layout_marginEnd="12dp">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/icon_friend_324976"
+                                        android:scaleType="fitCenter"
+                                        android:padding="2dp"
+                                        android:contentDescription="최자두 프로필 이미지" />
+                                </androidx.cardview.widget.CardView>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical">
+
+                                    <TextView
+                                        android:id="@+id/tvFriend10"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="최자두"
+                                        android:textColor="#1D1E21"
+                                        android:textSize="24sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="6dp"
+                                        android:layout_marginEnd="8dp"
+                                        android:text="(정차 중 / P기어)"
+                                        android:textColor="#D97706"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="💬 &quot;새콤하게 자~달콤하게 두~&quot;"
+                                        android:textColor="#4B5563"
+                                        android:textSize="20sp" />
+                                </LinearLayout>
+
+                                <Button
+                                    android:id="@+id/btnPokeFriend10"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="👉 콕찌르기"
+                                    android:textColor="#1D1E21"
+                                    android:backgroundTint="#E2E8F0"
+                                    android:textSize="16sp"
+                                    android:padding="10dp"
+                                    android:layout_marginEnd="6dp" />
+
+                                <Button
+                                    android:id="@+id/btnVoiceFriend10"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="🎙️ 음성"
+                                    android:textColor="#1D1E21"
+                                    android:backgroundTint="#E2E8F0"
+                                    android:textSize="16sp"
+                                    android:padding="10dp" />
+                            </LinearLayout>
+
+                            <!-- [9] 최제네시스 (차량 미이용) -->
+                            <LinearLayout
+                                android:id="@+id/layoutFriend4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:paddingStart="6dp"
+                                android:paddingEnd="6dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/avatarFriend4"
+                                    android:layout_width="46dp"
+                                    android:layout_height="46dp"
+                                    app:cardCornerRadius="23dp"
+                                    app:cardBackgroundColor="#FFFFFF"
+                                    app:cardElevation="0dp"
+                                    android:layout_marginEnd="12dp">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/icon_friend_324976"
+                                        android:scaleType="fitCenter"
+                                        android:padding="2dp"
+                                        android:contentDescription="최제네시스 프로필 이미지" />
+                                </androidx.cardview.widget.CardView>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical">
+
+                                    <TextView
+                                        android:id="@+id/tvFriend4"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="최제네시스"
+                                        android:textColor="#1D1E21"
+                                        android:textSize="24sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="6dp"
+                                        android:layout_marginEnd="8dp"
+                                        android:text="(차량 미이용)"
+                                        android:textColor="#94A3B8"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="💬 &quot;차 수리맡겼다...ㅠㅠ&quot;"
+                                        android:textColor="#4B5563"
+                                        android:textSize="20sp" />
+                                </LinearLayout>
+
+                                <Button
+                                    android:id="@+id/btnPokeFriend4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="👉 콕찌르기"
+                                    android:textColor="#1D1E21"
+                                    android:backgroundTint="#E2E8F0"
+                                    android:textSize="16sp"
+                                    android:padding="10dp"
+                                    android:layout_marginEnd="6dp" />
+
+                                <Button
+                                    android:id="@+id/btnVoiceFriend4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="🎙️ 음성"
+                                    android:textColor="#1D1E21"
+                                    android:backgroundTint="#E2E8F0"
+                                    android:textSize="16sp"
+                                    android:padding="10dp" />
+                            </LinearLayout>
+
+                            <!-- [10] 한아이오닉 (차량 미이용) -->
+                            <LinearLayout
+                                android:id="@+id/layoutFriend8"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:paddingStart="6dp"
+                                android:paddingEnd="6dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/avatarFriend8"
+                                    android:layout_width="46dp"
+                                    android:layout_height="46dp"
+                                    app:cardCornerRadius="23dp"
+                                    app:cardBackgroundColor="#FFFFFF"
+                                    app:cardElevation="0dp"
+                                    android:layout_marginEnd="12dp">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/icon_friend_9ba8e2"
+                                        android:scaleType="fitCenter"
+                                        android:padding="2dp"
+                                        android:contentDescription="한아이오닉 프로필 이미지" />
+                                </androidx.cardview.widget.CardView>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical">
+
+                                    <TextView
+                                        android:id="@+id/tvFriend8"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="한아이오닉"
+                                        android:textColor="#1D1E21"
+                                        android:textSize="24sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="6dp"
+                                        android:layout_marginEnd="8dp"
+                                        android:text="(차량 미이용)"
+                                        android:textColor="#94A3B8"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="💬 &quot;이번 주 세차 갈 사람~&quot;"
+                                        android:textColor="#4B5563"
+                                        android:textSize="20sp" />
+                                </LinearLayout>
+
+                                <Button
+                                    android:id="@+id/btnPokeFriend8"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="👉 콕찌르기"
+                                    android:textColor="#1D1E21"
+                                    android:backgroundTint="#E2E8F0"
+                                    android:textSize="16sp"
+                                    android:padding="10dp"
+                                    android:layout_marginEnd="6dp" />
+
+                                <Button
+                                    android:id="@+id/btnVoiceFriend8"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="🎙️ 음성"
+                                    android:textColor="#1D1E21"
+                                    android:backgroundTint="#E2E8F0"
+                                    android:textSize="16sp"
+                                    android:padding="10dp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </ScrollView>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 하단: 4개 꽉 채우는 대형 순백색 카드 그리드 메뉴 (2 x 2) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.1"
+                android:orientation="vertical">
+
+                <!-- 윗줄 2개 대형 카드 (1번: 실시간 채팅, 2번: 실시간 미니 게임) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <!-- 1번: 실시간 채팅 (상단 이동) -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardChat"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        app:cardBackgroundColor="#FFFFFF"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="2dp"
+                        android:stateListAnimator="@animator/pleos_card_elevation_animator"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="12dp">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="54dp"
+                                    android:layout_height="54dp"
+                                    app:cardCornerRadius="27dp"
+                                    app:cardBackgroundColor="#DBEAFE"
+                                    app:cardElevation="0dp">
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:text="💬"
+                                        android:textSize="30sp"
+                                        android:gravity="center" />
+                                </androidx.cardview.widget.CardView>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="실시간 채팅"
+                                    android:textColor="#1D1E21"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold"
+                                    android:paddingTop="8dp" />
+                            </LinearLayout>
+
+                            <!-- 우측 상단 구석의 작은 빨간색 알림 점 배지 -->
+                            <View
+                                android:id="@+id/badgeChatNotification"
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:background="@drawable/bg_notification_dot"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginEnd="14dp"
+                                android:layout_marginTop="14dp" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- 2번: 실시간 미니 게임 -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardGames"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        app:cardBackgroundColor="#FFFFFF"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="2dp"
+                        android:stateListAnimator="@animator/pleos_card_elevation_animator"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="12dp">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="54dp"
+                                android:layout_height="54dp"
+                                app:cardCornerRadius="27dp"
+                                app:cardBackgroundColor="#EDE9FE"
+                                app:cardElevation="0dp">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="🎮"
+                                    android:textSize="30sp"
+                                    android:gravity="center" />
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="실시간 미니 게임"
+                                android:textColor="#1D1E21"
+                                android:textSize="24sp"
+                                android:textStyle="bold"
+                                android:paddingTop="8dp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <!-- 아랫줄 2개 대형 카드 (3번: 이번주 활발이, 4번: 설정) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <!-- 3번: 활발이 순위 (하단 이동) -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardLeaderboard"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        app:cardBackgroundColor="#FFFFFF"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="2dp"
+                        android:stateListAnimator="@animator/pleos_card_elevation_animator"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="12dp">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="54dp"
+                                android:layout_height="54dp"
+                                app:cardCornerRadius="27dp"
+                                app:cardBackgroundColor="#FEF3C7"
+                                app:cardElevation="0dp">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="🏆"
+                                    android:textSize="30sp"
+                                    android:gravity="center" />
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="활발이 순위"
+                                android:textColor="#1D1E21"
+                                android:textSize="24sp"
+                                android:textStyle="bold"
+                                android:paddingTop="8dp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- 4번: 설정 -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardSettings"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        app:cardBackgroundColor="#FFFFFF"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="2dp"
+                        android:stateListAnimator="@animator/pleos_card_elevation_animator"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="12dp">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="54dp"
+                                android:layout_height="54dp"
+                                app:cardCornerRadius="27dp"
+                                app:cardBackgroundColor="#F1F5F9"
+                                app:cardElevation="0dp">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="⚙️"
+                                    android:textSize="30sp"
+                                    android:gravity="center" />
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="설정"
+                                android:textColor="#1D1E21"
+                                android:textSize="24sp"
+                                android:textStyle="bold"
+                                android:paddingTop="8dp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

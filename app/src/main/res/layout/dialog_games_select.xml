@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F8FAFC"
+    android:padding="20dp">
+
+    <!-- 상단 헤더 (제목 34sp) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="14dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="🎮 실시간 미니게임 목록"
+            android:textColor="#1D1E21"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- 3개 미니게임 대형 선택 버튼 카드 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <!-- [1번 게임] ⚪⚫ 오목 대결 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardGameOmok"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="2dp"
+            android:stateListAnimator="@animator/pleos_card_elevation_animator"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚪⚫"
+                    android:textSize="64sp"
+                    android:paddingBottom="12dp" />
+
+                <!-- 제목 28sp Bold -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1:1 오목 대결"
+                    android:textColor="#1D1E21"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <!-- 작은 설명 글씨 20sp -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="친구와 주고받는 15x15 두뇌 수싸움"
+                    android:textColor="#64748B"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:paddingTop="6dp" />
+
+                <!-- DRIVUS 헤더 색상 #545F93 통일 & 20sp Bold -->
+                <Button
+                    android:id="@+id/btnStartOmok"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:backgroundTint="#545F93"
+                    android:text="🎮 게임신청"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- [2번 게임] 🧠 상식 퀴즈 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardGameQuiz"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="2dp"
+            android:stateListAnimator="@animator/pleos_card_elevation_animator"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🧠"
+                    android:textSize="64sp"
+                    android:paddingBottom="12dp" />
+
+                <!-- 제목 28sp Bold -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="상식 퀴즈"
+                    android:textColor="#1D1E21"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <!-- 작은 설명 글씨 20sp -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="친구와 겨루는 실시간 두뇌 상식 대결"
+                    android:textColor="#64748B"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:paddingTop="6dp" />
+
+                <!-- DRIVUS 헤더 색상 #545F93 통일 & 20sp Bold -->
+                <Button
+                    android:id="@+id/btnStartQuiz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:backgroundTint="#545F93"
+                    android:text="🎮 게임신청"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- [3번 게임] 🔤 드라이브 끝말잇기 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardGameWordRelay"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="2dp"
+            android:stateListAnimator="@animator/pleos_card_elevation_animator"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🔤"
+                    android:textSize="64sp"
+                    android:paddingBottom="12dp" />
+
+                <!-- 제목 28sp Bold -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="드라이브 끝말잇기"
+                    android:textColor="#1D1E21"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <!-- 작은 설명 글씨 20sp -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="친구와 주고받는 1:1 단어 끝말잇기 대결"
+                    android:textColor="#64748B"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:paddingTop="6dp" />
+
+                <!-- DRIVUS 헤더 색상 #545F93 통일 & 20sp Bold -->
+                <Button
+                    android:id="@+id/btnStartWordRelay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:backgroundTint="#545F93"
+                    android:text="🎮 게임신청"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <!-- 하단 우측 배치 닫기 버튼 바 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:paddingTop="12dp">
+
+        <Button
+            android:id="@+id/btnCloseGamesSelect"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="✖️ 닫기"
+            android:textColor="#374151"
+            android:backgroundTint="#E2E8F0"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

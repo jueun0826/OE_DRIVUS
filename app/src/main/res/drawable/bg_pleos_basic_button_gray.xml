@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Pressed State: #CBD5E1 (Pleos Gray 300) -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#CBD5E1" />
+            <corners android:radius="14dp" />
+        </shape>
+    </item>
+    <!-- Disabled State: #F1F5F9 (Pleos Gray 100) -->
+    <item android:state_enabled="false">
+        <shape android:shape="rectangle">
+            <solid android:color="#F1F5F9" />
+            <corners android:radius="14dp" />
+        </shape>
+    </item>
+    <!-- Default Enabled State: #E2E8F0 (Pleos Gray 200) -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#E2E8F0" />
+            <corners android:radius="14dp" />
+        </shape>
+    </item>
+</selector>
